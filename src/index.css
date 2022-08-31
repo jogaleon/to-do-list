@@ -1,0 +1,181 @@
+:root {
+    --colorOutline: #949461;
+    --filterOutline: invert(64%) sepia(10%) saturate(1260%) hue-rotate(21deg) brightness(88%) contrast(86%);
+    --filterOutlineRed: invert(40%) sepia(18%) saturate(1179%) hue-rotate(317deg) brightness(88%) contrast(96%); 
+
+    --colorBackgroundNote: #FFFF99;
+    --filterBackgroundNote: invert(100%) sepia(15%) saturate(5718%) hue-rotate(334deg) brightness(108%) contrast(105%);
+    
+    --filterButtonActive: invert(98%) sepia(7%) saturate(2621%) hue-rotate(1deg) brightness(95%) contrast(81%) drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));
+    --filterControlActive: invert(41%) sepia(10%) saturate(1437%) hue-rotate(21deg) brightness(98%) contrast(88%);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #928670;
+
+}
+
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 30%;
+}
+
+.completedList {
+    grid-column-start: 2;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.completedList--title {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+}
+
+.notesList {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.notes--title {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 50px;
+}
+
+.notes--controls {
+    width: 100%;
+
+    margin-bottom: 20px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.button {
+    height: 60px;
+    cursor: pointer;
+    filter: var(--filterBackgroundNote) drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6));
+}
+
+.button:active {
+    filter: var(--filterButtonActive);
+}
+
+.note {
+    position: relative;
+    width: 300px;
+    
+    background-color: var(--colorBackgroundNote);
+    border: thin solid var(--colorOutline);
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.1);
+    
+    padding: 5px;
+    padding-right: 0px;
+    margin-bottom: 10px;
+}
+
+.complete {
+    width: 100%;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+
+}
+
+
+
+.note--header {
+    width: 96%;
+    height: 40px;
+    padding-top: 5px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.note--header--controls {
+    height: 25px;
+    background-color: transparent;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon--group1 {
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    height: inherit;
+}
+
+.icon--group2 {
+    height: inherit;
+}
+
+.icon {
+    height: 100%;
+    cursor: pointer;
+    filter: var(--filterOutline);
+}
+
+.icon:active {
+    filter: var(--filterControlActive);
+}
+
+.redFilter {
+    filter: var(--filterOutlineRed);
+}
+
+.note--header--date {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+    color: var(--colorOutline);
+}
+
+.note--text {
+    width: 96%;
+    min-height: 50px;
+    resize: vertical;
+    overflow: auto;
+
+    border: none;
+    background-color: transparent;
+    
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.note--text:focus {
+    outline: none;
+}
+
+.note--text::-webkit-scrollbar{
+    width: 10px;
+}
+
+.note--text::-webkit-scrollbar-thumb {
+    background-color: var(--colorOutline)
+}
+
+.note--text::-webkit-scrollbar-corner {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+
